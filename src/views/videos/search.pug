@@ -1,0 +1,13 @@
+extends ../layout
+
+block content 
+    form(method="GET").search__form
+        input(name= "keyword", placeholder="Search by Title", type = "text")
+        button
+            i.fas.fa-search
+    
+    div.video-grid
+        each video in videos 
+            +video(video)
+        else
+            span.empty__message No videos found 

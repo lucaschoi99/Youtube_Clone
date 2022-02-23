@@ -1,0 +1,14 @@
+extends ../layout 
+
+block content 
+    div.profile__data
+        if user.avatarUrl
+            img(src=user.avatarUrl).avatar
+        else
+            span 😀
+        h3=user.name
+    div.video-grid
+        each video in user.videos
+            +video(video)
+        else
+            span.empty__message No videos found 
