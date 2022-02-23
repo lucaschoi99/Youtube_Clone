@@ -254,6 +254,7 @@ export const profile = async (req, res) => {
     if (!user) {
         return res.status(404).render("404", { pageTitle: "NOT FOUND" });
     }
+    console.log(user);
 
-    return res.render("users/profile", { pageTitle: `${user.name}님의 Profile`, user });
+    return res.render("profile", { pageTitle: `${user.name}님의 Profile`, user });
 } 

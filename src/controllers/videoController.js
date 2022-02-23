@@ -65,13 +65,13 @@ export const postEdit = async (req, res) => {
 }
 
 export const getUpload = (req, res) => {
-    return res.render("videos/upload", { pageTitle: "Upload Video" });
+    return res.render("upload", { pageTitle: "Upload Video" });
 }
 
 export const postUpload = async (req, res) => {
     const { user: { _id } } = req.session;
     const { video, thumb } = req.files;
-
+    const isHeroku = process.env.NODE_ENV === "production";
 
     // Upload a video into the videos array
     const { title, description, hashtags } = req.body;
@@ -80,7 +80,7 @@ export const postUpload = async (req, res) => {
             title,
             description,
             fileUrl: video[0].path,
-            thumbUrl: thumb[0].path,
+            thumbUrl: "/" + thumb[0].destination + thumb[0].filename,
             owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         });
@@ -89,10 +89,9 @@ export const postUpload = async (req, res) => {
         user.save();
         return res.redirect("/");
     } catch (error) {
-        return res.status(400).render("videos/upload", {
+        return res.status(400).render("upload", {
             pageTitle: "Upload Video",
             errorMessage: error._message,
-
         });
     }
 }

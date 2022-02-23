@@ -20,8 +20,8 @@ videoRouter
     .all(protectMiddleWare)
     .get(getUpload)
     .post(videoUploadMiddleware.fields([
-        { name: "video", maxCount: 1 },
-        { name: "thumb", maxCount: 1 },
+        { name: "video" },
+        { name: "thumb" },
     ]), postUpload);
 
 // Export videoRouter
