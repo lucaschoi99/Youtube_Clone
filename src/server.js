@@ -9,8 +9,6 @@ import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares";
 import apiRouter from "./routers/apiRouter";
 
-const PORT = 4000;
-
 // Create Express application
 const app = express();
 // Morgan - famous middleware

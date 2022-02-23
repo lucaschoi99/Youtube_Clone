@@ -12,4 +12,4 @@ const PORT = process.env.PORT || 4000;
 const handleListening = () => console.log(`✅Server listening on port http://localhost:${PORT}`);
 
 // Listen port 4000, callback func -> handleListening
-app.listen(4000, handleListening);
+app.listen(PORT, handleListening);
