@@ -6,6 +6,11 @@
   display: grid;
   gap: 50px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  img {
+    height: 140px;
+    border-radius: 7px;
+    width: 100%;
+  }
 }
 .auth-switch {
   text-align: center;
