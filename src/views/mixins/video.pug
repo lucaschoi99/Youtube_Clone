@@ -1,7 +1,7 @@
 mixin video(video)
     a(href=`/videos/${video.id}`).video-mixin
             div.video-grid
-                img(src=video.thumbUrl, alt="thumbnail", width="150", height="100", crossorigin)
+                img(src=video.thumbUrl, alt="thumbnail", crossorigin)
             div.video-mixin__data
                 span.video-mixin__title=video.title
                 div.video-mixin__meta
