@@ -79,7 +79,7 @@ export const postUpload = async (req, res) => {
             title,
             description,
             fileUrl: video[0].location,
-            thumbUrl: "/" + thumb[0].destination + thumb[0].filename,
+            thumbUrl: thumb[0].destination + "/" + thumb[0].filename,
             owner: _id,
             hashtags: Video.formatHashtags(hashtags),
         });
@@ -90,7 +90,7 @@ export const postUpload = async (req, res) => {
     } catch (error) {
         return res.status(400).render("upload", {
             pageTitle: "Upload Video",
-            errorMessage: "url: " + fileUrl + " thumbUrl: " + thumbUrl,
+            errorMessage: "Upload failed",
         });
     }
 }
