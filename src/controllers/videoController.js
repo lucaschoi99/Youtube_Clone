@@ -90,7 +90,7 @@ export const postUpload = async (req, res) => {
     } catch (error) {
         return res.status(400).render("upload", {
             pageTitle: "Upload Video",
-            errorMessage: "Upload failed",
+            errorMessage: "url: " + fileUrl + " thumbUrl: " + thumbUrl,
         });
     }
 }
